@@ -3,8 +3,8 @@ import numpy as np
 
 def find_shapes(cv2_image, minimum_area):
     
-    gray = cv2.cvtColor(cv2_image, cv2.COLOR_BGR2GRAY)
-    blur = cv2.GaussianBlur(gray, (5, 5), 0)
+    # gray = cv2.cvtColor(cv2_image, cv2.COLOR_BGR2GRAY) # Masked image is already in grayscale
+    blur = cv2.GaussianBlur(cv2_image, (5, 5), 0)
     edges = cv2.Canny(blur, 30, 150)
 
     contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
